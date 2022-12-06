@@ -1,0 +1,23 @@
+// Font
+@font-face {
+    font-family: Antipasto-bold;
+    src: url(../assets/fonts/Antipasto-Pro-ExtraBold-trial.ttf);
+}
+
+@font-face {
+    font-family: Antipasto-regular;
+    src: url(../assets/fonts/Antipasto-Pro-Regular-trial.ttf);
+}
+
+@font-face {
+    font-family: Antipasto-light;
+    src: url(../assets/fonts/Antipasto-Pro-ExtraLight-trial.ttf);
+}
+// colors
+$accent-o: #F1B237;
+$accent-x: #31C4BE;
+$gray: #A8BEC9;
+$dark-blue: #192A32;
+$light-blue: #1F3540;
+$green: #02CE91;
+$white: #fafafa;

@@ -1,0 +1,75 @@
+@font-face {
+  font-family: Antipasto-bold;
+  src: url(../assets/fonts/Antipasto-Pro-ExtraBold-trial.ttf);
+}
+@font-face {
+  font-family: Antipasto-regular;
+  src: url(../assets/fonts/Antipasto-Pro-Regular-trial.ttf);
+}
+@font-face {
+  font-family: Antipasto-light;
+  src: url(../assets/fonts/Antipasto-Pro-ExtraLight-trial.ttf);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-o {
+  background-color: #F1B237;
+}
+
+.bg-x {
+  background-color: #31C4BE;
+}
+
+.bg-dblue {
+  background-color: #192A32;
+}
+
+.bg-lblue {
+  background-color: #1F3540;
+}
+
+.bg-gray {
+  background-color: #A8BEC9;
+}
+
+.bg-green {
+  background-color: #02CE91;
+}
+
+.accent-o {
+  color: #F1B237;
+}
+
+.accent-x {
+  color: #31C4BE;
+}
+
+.white {
+  color: #fafafa;
+}
+
+.dblue {
+  color: #192A32;
+}
+
+.gray {
+  color: #A8BEC9;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}/*# sourceMappingURL=main.css.map */

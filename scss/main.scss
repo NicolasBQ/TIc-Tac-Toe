@@ -1,0 +1,71 @@
+@import './config';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// BACKGROUNDS
+
+.bg-o {
+    background-color: $accent-o;
+}
+
+.bg-x {
+    background-color: $accent-x;
+}
+
+.bg-dblue {
+    background-color: $dark-blue;
+}
+
+.bg-lblue {
+    background-color: $light-blue;
+}
+
+.bg-gray {
+    background-color: $gray;
+}
+
+.bg-green {
+    background-color: $green;
+}
+
+// COLORS
+
+.accent-o {
+    color: $accent-o;
+}
+
+.accent-x {
+    color: $accent-x;
+}
+
+.white {
+    color: $white;
+}
+
+.dblue {
+    color: $dark-blue;
+}
+
+.gray {
+    color: $gray;
+}
+
+// DISPLAY
+
+.d-none {
+    display: none;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
