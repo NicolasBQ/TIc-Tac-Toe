@@ -10,8 +10,14 @@
   font-family: Antipasto-light;
   src: url(../assets/fonts/Antipasto-Pro-ExtraLight-trial.ttf);
 }
-.main-title {
+.menu {
+  transition: all 1s ease-in-out;
+}
+.menu-title {
   margin-bottom: 1.5rem;
+}
+.menu-none {
+  transform: translateX(-100%);
 }
 
 *,
@@ -25,10 +31,20 @@
 body {
   height: 100vh;
   width: 100%;
+  overflow: hidden;
 }
 
 .main {
   min-width: 90%;
+  height: 80%;
+  overflow: hidden;
+}
+
+.home-icon {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  cursor: pointer;
 }
 
 .bg-o {
@@ -77,6 +93,10 @@ body {
 
 .d-none {
   display: none;
+}
+
+.d-block {
+  display: block;
 }
 
 .d-flex {
@@ -169,4 +189,32 @@ body {
 .btn-o:active {
   box-shadow: 0 4px 0 0 rgba(241, 178, 55, 0);
   transform: translateY(4px);
+}
+
+.next-container {
+  transform: translateX(1000px);
+}
+
+.left-out {
+  transform: translateX(-1000px);
+}
+
+.left-in {
+  transform: translateX(0);
+  transition: all 1s ease-in-out;
+}
+
+.light-container {
+  padding: 2rem 1rem;
+  background-color: #1F3540;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 0 0 rgba(18, 18, 18, 0.5);
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
 }/*# sourceMappingURL=main.css.map */

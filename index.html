@@ -8,20 +8,30 @@
     <title>Tic Tac Toe</title>
 </head>
 <body class="bg-dblue d-flex flex-column justify-center align-center">
-    
-    <main class="main d-flex flex-column align-center">
+    <div class="d-none home-icon" data-home-icon>
+        <img src="./assets/homeIcon.svg" alt="Home Icon">
+    </div>
+    <main class="main d-flex flex-column align-center justify-center" data-main>
         <!--MAIN MENU-->
-        <section class="main " data-main-menu>
-            <h1 class="main-title h-one f-bold text-center"><span class="accent-x">X</span><span class="accent-o">O</span></h1>
-            <div class="main-buttons d-flex flex-column gap-2">
-                <button class="btn-x bg-x">
+        <section class="menu absolute" data-main-menu>
+            <h1 class="menu-title h-one f-bold text-center"><span class="accent-x">X</span><span class="accent-o">O</span></h1>
+            <div class="menu-buttons d-flex flex-column gap-2">
+                <button class="btn-x bg-x" data-btn-pvp>
                     <p class="dblue h-four f-bold">NEW GAME VS PLAYER</p>
                 </button>
-                <button class="btn-o bg-o">
+                <button class="btn-o bg-o" data-btn-pve>
                     <p class="dblue h-four f-bold">NEW GAME VS ALEXA (CPU)</p>
                 </button>
             </div>
         </section>
+        <!--PVP - PLAYERS NAME-->
+        <section class="names next-container light-container " data-pvpName-container>
+            <h1 class="menu-title h-one f-bold text-center"><span class="accent-x">X</span><span class="accent-o">O</span></h1>
+        </section>
+        <!--PVE - DIFFICULTY-->
+        <section class="next-container light-container" data-pveDifficulty-container>
+            <h1 class="menu-title h-one f-bold text-center"><span class="accent-x">X</span><span class="accent-o">O</span></h1>
+        </section>    
     </main>
     <!--FOOTER-->
     <!-- <footer>
