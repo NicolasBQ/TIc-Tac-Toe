@@ -10,12 +10,25 @@
   font-family: Antipasto-light;
   src: url(../assets/fonts/Antipasto-Pro-ExtraLight-trial.ttf);
 }
+.main-title {
+  margin-bottom: 1.5rem;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+}
+
+.main {
+  min-width: 90%;
 }
 
 .bg-o {
@@ -72,4 +85,74 @@
 
 .flex-column {
   flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.f-bold {
+  font-family: Antipasto-bold;
+}
+
+.f-regular {
+  font-family: Antipasto-regular;
+}
+
+.f-light {
+  font-family: Antipasto-light;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.h-one {
+  font-size: 3.051875rem;
+}
+
+.h-two {
+  font-size: 2.44375rem;
+}
+
+.h-three {
+  font-size: 1.95625rem;
+}
+
+.h-four {
+  font-size: 1.5625rem;
+}
+
+.body {
+  font-size: 1rem;
+}
+
+.btn-x {
+  border: none;
+  padding: 1.5rem 0;
+  min-width: 23rem;
+  max-width: 27.75rem;
+  margin: 0 auto;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 8px 0 0 rgba(49, 196, 190, 0.65);
+}
+
+.btn-o {
+  border: none;
+  padding: 1.5rem 0;
+  min-width: 23rem;
+  max-width: 27.75rem;
+  margin: 0 auto;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 8px 0 0 rgba(241, 178, 55, 0.65);
 }/*# sourceMappingURL=main.css.map */

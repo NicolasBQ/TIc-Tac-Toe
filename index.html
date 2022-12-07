@@ -7,9 +7,26 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Tic Tac Toe</title>
 </head>
-<body>
-    <h1>Antipaso</h1>
-
+<body class="bg-dblue d-flex flex-column justify-center align-center">
+    
+    <main class="main d-flex flex-column align-center">
+        <!--MAIN MENU-->
+        <section class="main " data-main-menu>
+            <h1 class="main-title h-one f-bold text-center"><span class="accent-x">X</span><span class="accent-o">O</span></h1>
+            <div class="main-buttons d-flex flex-column gap-2">
+                <button class="btn-x bg-x">
+                    <p class="dblue h-four f-bold">NEW GAME VS PLAYER</p>
+                </button>
+                <button class="btn-o bg-o">
+                    <p class="dblue h-four f-bold">NEW GAME VS ALEXA (CPU)</p>
+                </button>
+            </div>
+        </section>
+    </main>
+    <!--FOOTER-->
+    <!-- <footer>
+        Created by <a href="https://github.com/NicolasBQ"><b>NicolasBQ</b></a>
+    </footer> -->
     <script src="js/index.js" type="module"></script>
 </body>
 </html>

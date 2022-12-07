@@ -1,4 +1,5 @@
-// Font
+// FONT
+
 @font-face {
     font-family: Antipasto-bold;
     src: url(../assets/fonts/Antipasto-Pro-ExtraBold-trial.ttf);
@@ -13,7 +14,16 @@
     font-family: Antipasto-light;
     src: url(../assets/fonts/Antipasto-Pro-ExtraLight-trial.ttf);
 }
-// colors
+
+// FONT SIZE
+$h-one: 3,051875rem;
+$h-two: 2,44375rem;
+$h-three: 1,95625rem;
+$h-four: 1,5625rem;
+$body: 1rem;
+
+// COLORS
+
 $accent-o: #F1B237;
 $accent-x: #31C4BE;
 $gray: #A8BEC9;
@@ -21,3 +31,14 @@ $dark-blue: #192A32;
 $light-blue: #1F3540;
 $green: #02CE91;
 $white: #fafafa;
+
+// MIXINS
+@mixin button {
+    border: none;
+    padding: 1.5rem 0;
+    min-width: 23rem;
+    max-width: 27.75rem;
+    margin: 0 auto;
+    border-radius: 0.75rem;
+    cursor: pointer;
+}
