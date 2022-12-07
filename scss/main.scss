@@ -138,9 +138,18 @@ body {
 .btn-x {
     @include button;
     box-shadow: 0 8px 0 0 rgba($accent-x, 0.65);
+
+    &:active {
+        box-shadow: 0 4px 0 0 rgba($accent-x, 0.65);
+        transform: translateY(4px);
+    }
 }
 
 .btn-o {
     @include button;
     box-shadow: 0 8px 0 0 rgba($accent-o, 0.65);
+    &:active {
+        box-shadow: 0 4px 0 0 rgba($accent-o, 0);;
+        transform: translateY(4px);
+    }
 }

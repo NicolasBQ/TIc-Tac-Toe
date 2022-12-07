@@ -31,14 +31,20 @@ $dark-blue: #192A32;
 $light-blue: #1F3540;
 $green: #02CE91;
 $white: #fafafa;
+$black: #121212;
 
 // MIXINS
 @mixin button {
     border: none;
     padding: 1.5rem 0;
+    // width: 27.75rem;
     min-width: 23rem;
     max-width: 27.75rem;
     margin: 0 auto;
     border-radius: 0.75rem;
     cursor: pointer;
+
+    &:hover p {
+        color: rgba($black, 0.9);
+    }
 }
