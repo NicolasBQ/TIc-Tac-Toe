@@ -1,6 +1,4 @@
 import { dom } from './dom.js';
-import { moveLeft, homeIcon } from './ui.js';
-
 
 const appInit = () => {
     const {
@@ -12,18 +10,7 @@ const appInit = () => {
         pvpNameContainer,
         pveDifficultyContainer
     } = dom();
-
-
-    btnPvp.addEventListener('click', () => {
-        moveLeft(menuContainer, pvpNameContainer);
-        homeIcon(true, home);
-    })
-    
-    btnPve.addEventListener('click', () => {
-        moveLeft(menuContainer, pveDifficultyContainer);
-        homeIcon(true, home);
-    })
-
+  
     // home.addEventListener('click', () => {
     //     homeIcon('false', home);
     // })

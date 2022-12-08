@@ -1,5 +1,6 @@
 @import './config';
 @import './menu';
+@import './names';
 
 *,
 *::before,
@@ -76,6 +77,10 @@ body {
     color: $gray;
 }
 
+.white {
+    color: $white;
+}
+
 // DISPLAY
 
 .d-none {
@@ -149,8 +154,11 @@ body {
 
 
 // BUTTONS
-.btn-x {
+.btn {
     @include button;
+}
+
+.btn-x {
     box-shadow: 0 8px 0 0 rgba($accent-x, 0.65);
 
     &:active {
@@ -160,7 +168,6 @@ body {
 }
 
 .btn-o {
-    @include button;
     box-shadow: 0 8px 0 0 rgba($accent-o, 0.65);
     &:active {
         box-shadow: 0 4px 0 0 rgba($accent-o, 0);;
@@ -168,18 +175,18 @@ body {
     }
 }
 
-// SECTIONS CAROUSEL
-.next-container {
-    transform: translateX(1000px);
+.btn-block {
+    box-shadow: 0 8px 0 0 rgba($gray, 0.65);
+    pointer-events: none;
 }
 
-.left-out {
-    transform: translateX(-1000px);
-}
-
-.left-in {
-    transform: translateX(0);
-    transition: all 1s ease-in-out;
+.btn-allow {
+    box-shadow: 0 8px 0 0 rgba($green, 0.65);
+    pointer-events: all;
+    &:active {
+        box-shadow: 0 4px 0 0 rgba($green, 0);;
+        transform: translateY(4px);
+    }
 }
 
 // CONTAINERS 
@@ -199,3 +206,16 @@ body {
     position: fixed;
 }
 
+// OTHER PROPERTIES
+.rounded-8 {
+    border-radius: 0.5rem;
+}
+
+.rounded-6 {
+    border-radius: 0.375rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body class="bg-dblue d-flex flex-column justify-center align-center">
+    <div class="home-icon" data-home-icon>
+        <a href="./index.html">
+            <img src="./assets/homeIcon.svg" alt="Home Icon">
+        </a>
+    </div>
+    <main class="main d-flex flex-column align-center justify-center">
+        <section class="names light-container text-center" data-pvpName-container>
+            <h4 class="names-title h-four f-bold gray">PICK PLAYER <span class="f-bold accent-x">X</span> NAME</h4>
+            <div class="names-sign d-flex rounded-8 bg-dblue">
+                <div class="names-sign_sign rounded-6 bg-x text-center">
+                    <span class="h-one f-bold dblue">
+                        X
+                    </span>
+                </div>
+                <div class="names-sign_sign rounded-6 bg-dblue text-center">
+                    <span class="h-one f-bold gray">
+                        O
+                    </span>
+                </div>
+            </div>
+            <input type="text" class="names-input names-input_x bg-dblue rounded-8 white f-regular h-four">
+        </section>
+        <a href="./levels.html" class="btn btn-block text-center bg-gray">
+            <p class="dblue h-four f-bold">START GAME</p> 
+         </a>
+    </main>
+    <script src="js/index.js" type="module"></script>
+</body>
+</html>
