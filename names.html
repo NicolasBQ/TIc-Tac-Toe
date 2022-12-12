@@ -15,24 +15,25 @@
     </div>
     <main class="main d-flex flex-column align-center justify-center">
         <section class="names light-container text-center" data-pvpName-container>
-            <h4 class="names-title h-four f-bold gray">PICK PLAYER <span class="f-bold accent-x">X</span> NAME</h4>
+            <h4 class="names-title h-four f-bold gray">PICK PLAYER <span class="f-bold accent-x" data-player>X</span> NAME</h4>
             <div class="names-sign d-flex rounded-8 bg-dblue">
-                <div class="names-sign_sign rounded-6 bg-x text-center">
+                <div class="names-sign_sign rounded-6 bg-x text-center" data-name-x>
                     <span class="h-one f-bold dblue">
                         X
                     </span>
                 </div>
-                <div class="names-sign_sign rounded-6 bg-dblue text-center">
+                <div class="names-sign_sign rounded-6  text-center" data-name-o>
                     <span class="h-one f-bold gray">
                         O
                     </span>
                 </div>
             </div>
-            <input type="text" class="names-input names-input_x bg-dblue rounded-8 white f-regular h-four">
+            <input type="text" class="d-block names-input names-input_x bg-dblue rounded-8 white f-regular h-four" data-input-x>
+            <input type="text" class="d-none names-input names-input_o bg-dblue rounded-8 white f-regular h-four" data-input-o>
         </section>
-        <a href="./levels.html" class="btn btn-block text-center bg-gray">
+        <button class="btn btn-block text-center bg-gray">
             <p class="dblue h-four f-bold">START GAME</p> 
-         </a>
+        </button>
     </main>
     <script src="js/index.js" type="module"></script>
 </body>

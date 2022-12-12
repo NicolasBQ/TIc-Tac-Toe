@@ -45,6 +45,9 @@
 .names-input_x {
   border: 2px solid #31C4BE;
 }
+.names-input_o {
+  border: 2px solid #F1B237;
+}
 
 *,
 *::before,

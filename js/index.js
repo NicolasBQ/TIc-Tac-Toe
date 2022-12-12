@@ -1,19 +1,20 @@
 import { dom } from './dom.js';
 
 const appInit = () => {
-    const {
-        main,
-        btnPvp,
-        btnPve,
-        home,
-        menuContainer,
-        pvpNameContainer,
-        pveDifficultyContainer
-    } = dom();
-  
-    // home.addEventListener('click', () => {
-    //     homeIcon('false', home);
-    // })
+    events();
+}
+
+const events = () => {
+    const elements = dom();
+
+    elements.forEach(element => {
+        let dom = element.domElement;
+        if(dom) {
+            dom.addEventListener('click', () => {
+                element.method();
+            });
+        }
+    })
 }
 
 
