@@ -10,7 +10,7 @@ const events = () => {
     elements.forEach(element => {
         let dom = element.domElement;
         if(dom) {
-            dom.addEventListener('click', () => {
+            dom.addEventListener(element.event, () => {
                 element.method();
             });
         }

@@ -257,4 +257,8 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.p-none {
+  pointer-events: none;
 }/*# sourceMappingURL=main.css.map */

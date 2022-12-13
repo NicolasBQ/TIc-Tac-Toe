@@ -1,77 +1,108 @@
+import { 
+    btnPvpFunction,
+    btnPveFunction,
+    easyBtnFunction,
+    mediumBtnFunction,
+    impossibleBtnFunction,
+    nameXFunction,
+    nameOFunction,
+    nameRestrictions
+
+ } from './domFunctions.js';
+
 const dom = () => {
     const btnPvp = {
         domElement: document.querySelector('[data-btn-pvp]'),
+        event: 'click',
         method: function() {
-            localStorage.setItem('mode', 'pvp');
-            document.location.href = './names.html';
+            btnPvpFunction();
         }
     }
 
     const btnPve = {
         domElement: document.querySelector('[data-btn-pve]'),
+        event: 'click',
         method: function() {
-            localStorage.setItem('mode', 'pve');
-            document.location.href = './levels.html';
+            btnPveFunction();
         }
-    } 
+    }
+
+    const easyBtn = {
+        domElement: document.querySelector('[data-easy-btn]'),
+        event: 'click',
+        method: function() {
+            easyBtnFunction();
+        }
+    }
+
+    const mediumBtn = {
+        domElement: document.querySelector('[data-medium-btn]'),
+        event: 'click',
+        method: function() {
+            mediumBtnFunction();
+        }
+    }
+
+    const impossibleBtn = {
+        domElement: document.querySelector('[data-impossible-btn]'),
+        event: 'click',
+        method: function() {
+            impossibleBtnFunction();
+        }
+    }
+
     const nameX = {
         domElement: document.querySelector('[data-name-x]'),
+        event: 'click',
         method: function() {
-            const element = this.domElement;
-            const elementChild = element.firstElementChild;
-            const oContainer = element.nextElementSibling;
-            const siblingChild = oContainer.firstElementChild;
-            const inputX = document.querySelector('[data-input-x]');
-            const inputO = document.querySelector('[data-input-o]');
-            const player = document.querySelector('[data-player]');
-
-            oContainer.classList.remove('bg-o');
-            element.classList.add('bg-x');
-            elementChild.classList.add('dblue');
-            elementChild.classList.remove('gray');
-            siblingChild.classList.add('gray');
-            siblingChild.classList.remove('dblue');
-            inputX.classList.add('d-block');
-            inputX.classList.remove('d-none');
-            inputO.classList.add('d-none');
-            inputO.classList.remove('d-block');
-            player.classList.add('accent-x');
-            player.classList.remove('accent-o');
-            player.innerHTML = 'X';
+            nameXFunction(this.domElement);
         }
     } 
+
     const nameO = {
         domElement: document.querySelector('[data-name-o]'),
+        event: 'click',
         method: function() {
-            const element = this.domElement;
-            const elementChild = element.firstElementChild;
-            const xContainer = element.previousElementSibling;
-            const siblingChild = xContainer.firstElementChild;
-            const inputX = document.querySelector('[data-input-x]');
-            const inputO = document.querySelector('[data-input-o]');
-            const player = document.querySelector('[data-player]');
-
-            xContainer.classList.remove('bg-x');
-            element.classList.add('bg-o');
-            elementChild.classList.add('dblue');
-            elementChild.classList.remove('gray');
-            siblingChild.classList.add('gray');
-            siblingChild.classList.remove('dblue');
-            inputO.classList.add('d-block');
-            inputO.classList.remove('d-none');
-            inputX.classList.add('d-none');
-            inputX.classList.remove('d-block');
-            player.classList.add('accent-o');
-            player.classList.remove('accent-x');
-            player.innerHTML = 'O';
+            nameOFunction(this.domElement);
         }
-    } 
+    }
+
+    const startBtn = {
+        domElement: document.querySelector('[data-start-btn]'),
+        event: 'click',
+        method: function() {
+            console.log('Hello World');
+        }
+    }
+
+    const inputX = {
+        domElement: document.querySelector('[data-input-x]'),
+        event: 'input',
+        method: function() {
+            nameRestrictions();
+        }
+    }
+
+    const inputO = {
+        domElement: document.querySelector('[data-input-o]'),
+        event: 'input',
+        method: function() {
+            nameRestrictions();
+        }
+    }
+
 
     return [
         btnPvp,
         btnPve,
+        easyBtn,
+        mediumBtn,
+        impossibleBtn,
         nameX,
-        nameO
+        nameO,
+        startBtn,
+        inputX,
+        inputO
     ]
 }
 
