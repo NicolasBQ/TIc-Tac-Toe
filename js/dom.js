@@ -6,7 +6,8 @@ import {
     impossibleBtnFunction,
     nameXFunction,
     nameOFunction,
-    nameRestrictions
+    nameRestrictions,
+    startBtnFunction
 
  } from './domFunctions.js';
 
@@ -71,7 +72,7 @@ const dom = () => {
         domElement: document.querySelector('[data-start-btn]'),
         event: 'click',
         method: function() {
-            console.log('Hello World');
+            startBtnFunction();
         }
     }
 

@@ -49,6 +49,65 @@
   border: 2px solid #F1B237;
 }
 
+.board-elements {
+  width: 90%;
+  margin-bottom: 1rem;
+}
+.board-elements_turn {
+  padding: 1rem 2.25rem;
+  box-shadow: 0 4px 0 0 rgba(18, 18, 18, 0.25);
+}
+@media screen and (min-width: 64em) {
+  .board-elements {
+    width: 40%;
+  }
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 90%;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.board div {
+  height: 6rem;
+  width: 100%;
+  box-shadow: 0 4px 0 0 rgba(18, 18, 18, 0.25);
+}
+@media screen and (min-width: 64em) {
+  .board {
+    width: 40%;
+    gap: 1rem;
+  }
+  .board div {
+    height: 9rem;
+    box-shadow: 0 8px 0 0 rgba(18, 18, 18, 0.25);
+    cursor: pointer;
+  }
+}
+
+.board-scores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 90%;
+  gap: 0.5rem;
+}
+.board-scores_container {
+  width: 100%;
+  height: 4rem;
+}
+@media screen and (min-width: 64em) {
+  .board-scores {
+    width: 40%;
+    gap: 1rem;
+  }
+  .board-scores_container {
+    height: 6rem;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -60,12 +119,11 @@
 body {
   height: 100vh;
   width: 100%;
-  overflow: hidden;
 }
 
 .main {
   min-width: 90%;
-  height: 80%;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -146,6 +204,10 @@ body {
 
 .align-center {
   align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .gap-2 {
@@ -231,6 +293,18 @@ body {
   transform: translateY(4px);
 }
 
+.btn-restart {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 0 0 rgba(168, 190, 201, 0.65);
+  border: none;
+}
+.btn-restart:active {
+  box-shadow: 0 4px 0 0 rgba(168, 190, 201, 0);
+  transform: translateY(4px);
+}
+
 .light-container {
   padding: 2rem 1rem;
   background-color: #1F3540;
@@ -252,6 +326,10 @@ body {
 
 .rounded-6 {
   border-radius: 0.375rem;
+}
+
+.rounded-12 {
+  border-radius: 0.75rem;
 }
 
 a {

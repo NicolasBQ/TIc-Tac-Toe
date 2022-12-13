@@ -1,5 +1,3 @@
-import { dom } from "./dom.js";
-
 const btnPvpFunction = () => {
     localStorage.setItem('mode', 'pvp');
     document.location.href = './names.html';
@@ -128,6 +126,10 @@ const nameRestrictions = () => {
     }
 }
 
+const startBtnFunction = () => {
+    document.location.href = './board.html';
+}
+
 export {
     btnPvpFunction,
     btnPveFunction,
@@ -136,5 +138,6 @@ export {
     impossibleBtnFunction,
     nameXFunction,
     nameOFunction,
-    nameRestrictions
+    nameRestrictions,
+    startBtnFunction
 }

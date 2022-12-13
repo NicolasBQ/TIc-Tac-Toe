@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body class="bg-dblue d-flex flex-column justify-center align-center">
+    <div class="home-icon" data-home-icon>
+        <a href="./index.html">
+            <img src="./assets/homeIcon.svg" alt="Home Icon">
+        </a>
+    </div>
+    <main class="main d-flex flex-column align-center justify-center">
+        <section class="board-elements d-flex justify-between align-center">
+            <h1 class="h-one f-bold text-center"><span class="accent-x">X</span><span class="accent-o">O</span></h1>
+            <div class="board-elements_turn bg-lblue text-center rounded-8">
+                <h4 class="h-four f-bold gray"><span>X</span> TURN</h4>
+            </div>
+            <button class="btn-restart rounded-8">
+                <img src="assets/restartIcon.svg" alt="">
+            </button>
+        </section>
+        <section class="board">
+            <div class="bg-lblue rounded-8"></div>
+            <div class="bg-lblue rounded-8"></div>
+            <div class="bg-lblue rounded-8"></div>
+            <div class="bg-lblue rounded-8"></div>
+            <div class="bg-lblue rounded-8"></div>
+            <div class="bg-lblue rounded-8"></div>
+            <div class="bg-lblue rounded-8"></div>
+            <div class="bg-lblue rounded-8"></div>
+            <div class="bg-lblue rounded-8"></div>
+        </section>
+        <section class="board-scores d-flex justify-between align-center">
+            <div class="board-scores_container bg-x rounded-12">
+                <p></p>
+                <p></p>
+            </div>
+            <div class="board-scores_container bg-gray rounded-12">
+                <p></p>
+                <p></p>
+            </div>
+            <div class="board-scores_container bg-o rounded-12">
+                <p></p>
+                <p></p>
+            </div>
+        </section>
+    </main>
+    </main>
+    <script src="js/index.js" type="module"></script>
+</body>
+</html>
