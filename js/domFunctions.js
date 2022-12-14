@@ -127,6 +127,19 @@ const nameRestrictions = () => {
 }
 
 const startBtnFunction = () => {
+    const inputX = document.querySelector('[data-input-x]').value; 
+    const inputO = document.querySelector('[data-input-o]').value;
+
+    if(inputX == '') {
+        localStorage.setItem('playerX', 'Alexandra');
+        localStorage.setItem('playerO', inputO);
+    } else if(inputO == '') {
+        localStorage.setItem('playerO', 'Alexandra');
+        localStorage.setItem('playerX', inputX);
+    } else {
+        localStorage.setItem('playerX', inputX);
+        localStorage.setItem('playerO', inputO);
+    }
     document.location.href = './board.html';
 }
 

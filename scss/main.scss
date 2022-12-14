@@ -2,6 +2,7 @@
 @import './menu';
 @import './names';
 @import './board';
+@import './swup';
 
 *,
 *::before,
@@ -122,6 +123,10 @@ body {
 
 .f-regular {
     font-family: Antipasto-regular;
+}
+
+.f-regular-roboto {
+    font-family: 'Roboto', sans-serif;
 }
 
 .f-light {

@@ -35,21 +35,22 @@
             <div class="bg-lblue rounded-8"></div>
         </section>
         <section class="board-scores d-flex justify-between align-center">
-            <div class="board-scores_container bg-x rounded-12">
-                <p></p>
-                <p></p>
+            <div class="board-scores_container d-flex flex-column justify-center align-center bg-x rounded-12">
+                <p class="f-regular h-four" data-playerx-name></p>
+                <p class="f-regular-roboto h-four" data-playerx-score></p>
             </div>
-            <div class="board-scores_container bg-gray rounded-12">
-                <p></p>
-                <p></p>
+            <div class="board-scores_container d-flex flex-column justify-center align-center bg-gray rounded-12">
+                <p class="f-regular h-four">TIE</p>
+                <p class="f-regular-roboto h-four" data-tie-score></p>
             </div>
-            <div class="board-scores_container bg-o rounded-12">
-                <p></p>
-                <p></p>
+            <div class="board-scores_container d-flex flex-column justify-center align-center bg-o rounded-12">
+                <p class="f-regular h-four" data-playero-name></p>
+                <p class="f-regular-roboto h-four" data-playero-score></p>
             </div>
         </section>
     </main>
     </main>
     <script src="js/index.js" type="module"></script>
+    <script src="js/board.js"></script>
 </body>
 </html>

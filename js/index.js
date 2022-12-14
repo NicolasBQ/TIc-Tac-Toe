@@ -1,10 +1,11 @@
 import { dom } from './dom.js';
 
 const appInit = () => {
-    events();
+    events();    
 }
 
 const events = () => {
+    
     const elements = dom();
 
     elements.forEach(element => {
@@ -15,6 +16,13 @@ const events = () => {
             });
         }
     })
+}
+
+const cleanData = () => {
+    localStorage.setItem('playerX', '');
+    localStorage.setItem('playerO', '');
+    localStorage.setItem('mode', '');
+    localStorage.setItem('difficulty', '');
 }
 
 
