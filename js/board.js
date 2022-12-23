@@ -83,27 +83,32 @@ const boardArr = () => {
         '', '', ''
     ];
 
+    let turnDom = document.querySelector('[data-turn]');
     const addSign = (sign, i) => {
         board[i] = sign;
     };
 
     const drawSign = (sign, element) => {
-        let turnDom = document.querySelector('[data-turn]');
+        
         element.innerText = sign;
         
         if(sign == 'X') {
+            element.classList.remove('accent-o');
             element.classList.add('accent-x');
-            turnDom.innerText = 'X';
-        } else {
-            element.classList.add('accent-o');
             turnDom.innerText = 'O';
+        } 
+        if(sign == 'O') {
+            element.classList.remove('accent-x');
+            element.classList.add('accent-o');
+            turnDom.innerText = 'X';
         }
     }
 
-    const resetBoard = (elements) => {
+    const resetBoard = (elements, round) => {
         board = board.map(field => field = '');
         elements.forEach(element => element.innerText = '');
-        console.log(board);
+        turnDom.innerText = 'X';
+        board_handler();
     }
 
     return {
@@ -135,16 +140,19 @@ const domInteraction = () => {
         field.addEventListener('click', () => {
             if(field.textContent != '') return;
             round++;
-            board.addSign(roundTurn(round), index);
-            board.drawSign(roundTurn(round), field);
+            let roundT = roundTurn(round);
+            board.addSign(roundT, index);
+            board.drawSign(roundT, field);
         })
     })
 
     btnRestart.addEventListener('click', () => {
         round = 0;
-        board.resetBoard(boardFields);
+        board.resetBoard(boardFields, round);
     })
 }
+
+
 
 
 
