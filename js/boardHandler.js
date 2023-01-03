@@ -1,6 +1,7 @@
 import { winCases } from "./winCases.js";
 import { boardArr } from "./boardArr.js";
 import { checkWinner } from "./checkWinner.js";
+import { easyAlgo } from "./easyAlgo.js";
 
 const board_handler = () =>{ 
     showData();
@@ -50,6 +51,8 @@ const gameInteraction = () => {
     const boardFields = Array.from(document.querySelectorAll('[data-board-field]'));
     const btnRestart = document.querySelector('[data-btn-restart]'); 
     const board = boardArr();
+    const mode = getVariables().mode;
+    let endGame = false;
 
 
     const resetGame = () => {
@@ -58,19 +61,42 @@ const gameInteraction = () => {
         board.resetBoard(boardFields);
     }
 
+    if(mode === 'pve') {
+        round++;
+        let cpu;
+        let difficulty = getVariables().difficulty;
+        let roundT = roundTurn(round);
+        let index;
+        if(getVariables().playerX === 'Alexandra') {
+            cpu = 'X'
+        }
+
+        if(getVariables().playerO === 'Alexandra') {
+            cpu = 'O';
+        }
+
+        if(roundT === cpu) {
+            index = cpuAlgorithm(difficulty, board)
+            console.log(index);
+            board.addSign(roundT, index);
+            board.drawSign(roundT, boardFields[index]);
+        }
+    }
 
 
     boardFields.forEach((field, index) => {
         field.addEventListener('click', () => {
             if(field.textContent != '') return;
             round++;
-            let roundT = roundTurn(round);
-            board.addSign(roundT, index);
-            board.drawSign(roundT, field);
-            let boardR = board.getBoard();
-            let endGame = winCases(boardR).endGame;
+            if(mode == 'pvp') {
+                let roundT = roundTurn(round);
+                board.addSign(roundT, index);
+                board.drawSign(roundT, field);
+                let boardR = board.getBoard();
+                endGame = winCases(boardR).endGame;
+            }
 
-          
+   
             checkWinner(round, endGame, board, boardR, roundT);
             if(round == 9 || endGame) {
                 round = 0;
@@ -79,8 +105,26 @@ const gameInteraction = () => {
     })
 
   
-
     btnRestart.addEventListener('click', resetGame);
+}
+
+
+
+const cpuAlgorithm = (difficulty, board) => {
+    let index;
+    if(difficulty === 'easy') {
+        index = easyAlgo();
+    }
+
+    if(difficulty === 'medium') {
+        mediumAlgo();
+    }
+
+    if(difficulty === 'impossible') {
+        impossibleAlgo();
+    }
+
+    return index
 }
 
 
