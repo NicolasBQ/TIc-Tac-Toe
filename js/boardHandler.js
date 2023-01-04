@@ -3,11 +3,10 @@ import { boardArr } from "./boardArr.js";
 import { checkWinner } from "./checkWinner.js";
 import { easyAlgo } from "./easyAlgo.js";
 
-const board_handler = () =>{ 
+const boardHandler = () =>{ 
     showData();
     gameInteraction();
 }
-
 
 const getVariables = () => {
     const playerX = localStorage.getItem('playerX');
@@ -23,6 +22,16 @@ const getVariables = () => {
     }
 }
 
+const boardDom = () => {
+    const boardFields = Array.from(document.querySelectorAll('[data-board-field]'));
+    const btnRestart = document.querySelector('[data-btn-restart]'); 
+
+    return {
+        boardFields,
+        btnRestart
+    }
+}
+
 
 const showData = () => {
     const { playerX, playerO } = getVariables();
@@ -32,6 +41,15 @@ const showData = () => {
     xContainer.innerText = playerX;
     oContainer.innerText = playerO;
 
+}
+
+const resetGame = (board) => {
+    let round = 0;
+    let boardFields = boardDom().boardFields
+    checkWinner().resetScores();
+    board.resetBoard(boardFields);
+
+    return { round } 
 }
 
 const roundTurn = (n) => {
@@ -48,39 +66,15 @@ const roundTurn = (n) => {
 
 const gameInteraction = () => {
     let round = 0;
-    const boardFields = Array.from(document.querySelectorAll('[data-board-field]'));
-    const btnRestart = document.querySelector('[data-btn-restart]'); 
+    const boardFields = boardDom().boardFields;
+    const btnRestart = boardDom().btnRestart;
     const board = boardArr();
     const mode = getVariables().mode;
     let endGame = false;
 
-
-    const resetGame = () => {
-        round = 0;
-        checkWinner().resetScores();
-        board.resetBoard(boardFields);
-    }
-
     if(mode === 'pve') {
-        round++;
-        let cpu;
-        let difficulty = getVariables().difficulty;
-        let roundT = roundTurn(round);
-        let index;
-        if(getVariables().playerX === 'Alexandra') {
-            cpu = 'X'
-        }
-
-        if(getVariables().playerO === 'Alexandra') {
-            cpu = 'O';
-        }
-
-        if(roundT === cpu) {
-            index = cpuAlgorithm(difficulty, board)
-            console.log(index);
-            board.addSign(roundT, index);
-            board.drawSign(roundT, boardFields[index]);
-        }
+        pveInteraction();
+        return;
     }
 
 
@@ -88,16 +82,16 @@ const gameInteraction = () => {
         field.addEventListener('click', () => {
             if(field.textContent != '') return;
             round++;
-            if(mode == 'pvp') {
-                let roundT = roundTurn(round);
-                board.addSign(roundT, index);
-                board.drawSign(roundT, field);
-                let boardR = board.getBoard();
-                endGame = winCases(boardR).endGame;
-            }
+            
+            let roundT = roundTurn(round);
+            board.addSign(roundT, index);
+            board.drawSign(roundT, field);
+            let boardR = board.getBoard();
+            endGame = winCases(boardR).endGame;
+            
 
    
-            checkWinner(round, endGame, board, boardR, roundT);
+            checkWinner(round, endGame, board, boardR, roundT, gameInteraction);
             if(round == 9 || endGame) {
                 round = 0;
             }
@@ -105,15 +99,90 @@ const gameInteraction = () => {
     })
 
   
-    btnRestart.addEventListener('click', resetGame);
+    btnRestart.addEventListener('click', () => {
+        let resetG = resetGame(board);
+        round = resetG.round;
+    });
 }
 
+const pveInteraction = () => {
+    let round = 1;
+    const boardFields = boardDom().boardFields;
+    const btnRestart = boardDom().btnRestart;
+    let cpu;
+    let difficulty = getVariables().difficulty;
+    let roundT;
+    let index;
+    let board = boardArr();
+    let boardR = board.getBoard();
+    let endGame = false;
 
+    const cpuTurn = () => {
+        roundT = roundTurn(round);
+        index = cpuAlgorithm(difficulty, boardR)
+        board.addSign(roundT, index);
+        board.drawSign(roundT, boardFields[index]);
+        boardR = board.getBoard();
+        endGame = winCases(boardR).endGame;
+        
+        checkWinner(round, endGame, board, boardR, roundT, pveInteraction);
+        if(round == 9 || endGame) {
+            round = 1;
+        } else {
+            playerTurn();
+        }
+
+    }
+
+    const playerTurn = () => {
+        boardFields.forEach((field, index) => {
+            field.addEventListener('click', () => {
+                if(field.textContent != '') return;
+                round++;
+                roundT = roundTurn(round);
+                board.addSign(roundT, index);
+                board.drawSign(roundT, field);
+                boardR = board.getBoard();
+                round++;
+                endGame = winCases(boardR).endGame;
+
+                checkWinner(round, endGame, board, boardR, roundT, pveInteraction);
+                if(round == 9 || endGame) {
+                    round = 1;
+                } else {
+                    cpuTurn();
+                }
+            })
+        })
+    }
+
+
+    if(getVariables().playerX === 'Alexandra') {
+        cpu = 'X'
+    }
+
+    if(getVariables().playerO === 'Alexandra') {
+        cpu = 'O';
+    }
+
+    roundT = roundTurn(round);
+    if(roundT === cpu) {
+        cpuTurn();
+    } else {
+        playerTurn();
+    }
+
+    btnRestart.addEventListener('click', () => {
+        resetGame(board);
+        pveInteraction();
+    });
+
+}
 
 const cpuAlgorithm = (difficulty, board) => {
     let index;
     if(difficulty === 'easy') {
-        index = easyAlgo();
+        index = easyAlgo(board);
     }
 
     if(difficulty === 'medium') {
@@ -128,10 +197,12 @@ const cpuAlgorithm = (difficulty, board) => {
 }
 
 
+export {
+    boardHandler
+}
 
 
 
 
 
-
-document.addEventListener('DOMContentLoaded', board_handler);
+document.addEventListener('DOMContentLoaded', boardHandler);

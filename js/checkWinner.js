@@ -1,3 +1,4 @@
+import { boardHandler } from "./boardHandler.js";
 import { winCases } from "./winCases.js";
 import { winner } from "./winner.js"; 
 
@@ -6,7 +7,7 @@ let t = 0;
 let o = 0;
 
 
-const checkWinner = (round, endGame, board, boardR, roundT) => {
+const checkWinner = (round, endGame, board, boardR, roundT, func) => {
     const xScoreContainer = document.querySelector('[data-playerx-score]');
     const tieScoreContainer = document.querySelector('[data-tie-score]');
     const oScoreContainer = document.querySelector('[data-playero-score]');
@@ -17,6 +18,7 @@ const checkWinner = (round, endGame, board, boardR, roundT) => {
         t++
         setTimeout(() => {
             board.resetBoard(boardFields);
+            func;
         }, 1000);
         tieScoreContainer.innerText = t;
         winner(boardFields, 'N', []);
@@ -27,6 +29,7 @@ const checkWinner = (round, endGame, board, boardR, roundT) => {
 
         setTimeout(() => {
             board.resetBoard(boardFields);
+            func;
         }, 1000);
 
         if(roundT == 'X') {
