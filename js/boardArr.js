@@ -12,7 +12,6 @@ const boardArr = () => {
     };
 
     const drawSign = (sign, element) => {
-        
         element.innerText = sign;
         
         if(sign == 'X') {
