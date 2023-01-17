@@ -101,26 +101,11 @@ const nameRestrictions = () => {
             startBtn.classList.add('bg-green');
             startBtn.classList.remove('btn-block');
             startBtn.classList.remove('gray');
-            inputX.classList.remove('p-none');
-            inputO.classList.add('p-none');
-            inputO.placeholder = 'Alexandra';
-        } else if(inputOVal.length > 0) {
-            startBtn.classList.add('btn-allow');
-            startBtn.classList.add('bg-green');
-            startBtn.classList.remove('btn-block');
-            startBtn.classList.remove('gray');
-            inputO.classList.remove('p-none');
-            inputX.classList.add('p-none');
-            inputX.placeholder = 'Alexandra';
         } else {
             startBtn.classList.remove('btn-allow');
             startBtn.classList.remove('bg-green');
             startBtn.classList.add('btn-block');
             startBtn.classList.add('gray');
-            inputX.classList.remove('p-none');
-            inputO.classList.remove('p-none');
-            inputO.placeholder = '';
-            inputX.placeholder = '';
         }
 
     }

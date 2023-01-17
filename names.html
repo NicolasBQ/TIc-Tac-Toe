@@ -36,5 +36,17 @@
         </button>
     </main>
     <script src="js/index.js" type="module"></script>
+    <script>
+        // While Bugs with player O are resolved
+        window.onload = () => {
+            if(localStorage.getItem('mode') == 'pve') {
+                let nameO = document.querySelector('[data-input-o]');
+                let pick = document.querySelector('[data-player]').parentElement;
+                pick.innerText = 'PICK YOUR NAME';
+                nameO.placeholder = 'Alexandra';
+                nameO.classList.add('p-none');
+            }
+        }
+    </script>
 </body>
 </html>
