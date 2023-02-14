@@ -1,23 +1,25 @@
-let count = 1;
+import { minmax } from "./minmax.js";
+import { easyAlgo } from "./easyAlgo.js";
+
+let count = 0;
 
 const mediumAlgo = (board) => {
-    if(count % 2 != 0) {
-        console.log('MIN MAXX');
+    let index;
+
+    if(count % 2 == 0) {
+        index = minmax(board, 'O').index;
         count++;
     } else {
-        let emptyFields = [];
-    
-        for(let i = 0; i < board.length; i++) {
-            if(!board[i]) {
-                emptyFields.push(i);
-            }
-        }
-        
-    
-        let index = emptyFields[Math.floor(Math.random() * emptyFields.length)];
-    
-        return index;
+        index = easyAlgo(board);
+        count++;
     }
+
+    return index;
 }
 
-export { mediumAlgo }
+
+const resetCount = () => {
+    count = 0;
+}
+
+export { mediumAlgo, resetCount }

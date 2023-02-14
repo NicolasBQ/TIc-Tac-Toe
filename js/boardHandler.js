@@ -2,7 +2,8 @@ import { winCases } from "./winCases.js";
 import { boardArr } from "./boardArr.js";
 import { checkWinner } from "./checkWinner.js";
 import { easyAlgo } from "./easyAlgo.js";
-import { mediumAlgo } from "./mediumAlgo.js";
+import { mediumAlgo, resetCount} from "./mediumAlgo.js";
+import { impossibleAlgo } from "./impossible.js";
 
 const boardHandler = () =>{ 
     showData();
@@ -128,6 +129,11 @@ const pveInteraction = () => {
         endGame = winCases(boardR).endGame;
         
         checkWinner(round, endGame, board, boardR, roundT, 'pve');
+
+        if(endGame) {
+            resetCount();
+        }
+
         if(round == 9 || endGame) {
             round = 0;
         } else {
@@ -147,6 +153,11 @@ const pveInteraction = () => {
                 endGame = winCases(boardR).endGame;
 
                 checkWinner(round, endGame, board, boardR, roundT, 'pve');
+
+                if(endGame) {
+                    resetCount();
+                }
+
                 if(round == 9 || endGame) {
                     round = 0;
                 } else {
@@ -172,6 +183,8 @@ const pveInteraction = () => {
         if(getVariables().playerO === 'Alexandra') {
             playerTurn();
         }
+
+        resetCount();
     });
 }
 
@@ -182,11 +195,11 @@ const cpuAlgorithm = (difficulty, board) => {
     }
 
     if(difficulty === 'medium') {
-        mediumAlgo();
+        index = mediumAlgo(board);
     }
 
     if(difficulty === 'impossible') {
-        impossibleAlgo();
+        index = impossibleAlgo(board);
     }
 
     return index
